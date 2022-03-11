@@ -56,9 +56,31 @@
   padding: 25px 30px;
 }
 
-.link-reveal {
+.link-container {
+  position: relative;
+}
+
+.link-reveal, .outside-link {
+  position: absolute;
+  bottom: 100%;
   font-size: 2rem;
   border: 2px solid gray;
   border-radius: 50%;
   padding: 7px 10px;
+  background-color: white;
+}
+
+.link-reveal {
+  z-index: 1;
+}
+
+.initials {
+  height: 2rem;
+  width: auto;
+}
+
+.test {
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
