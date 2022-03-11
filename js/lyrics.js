@@ -61,4 +61,4 @@ const lyrics = [
   "You're finally safe from Shia LaBeouf"
 ];
 
-module.exports = { lyrics }
+module.exports =  { lyrics }
