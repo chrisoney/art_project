@@ -9,11 +9,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: 
     '. middle .'
     'left middle right'
     '. middle .';
+  font-family: 'Noto Sans Display', sans-serif;
 }
 .left-side {
   grid-area: left;
@@ -25,6 +26,7 @@
 }
 
 .left-side, .right-side {
+  font-size: 4em;
   cursor: pointer;
 }
 
@@ -33,6 +35,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
-.title{}
-.content{}
+.title{
+  font-size: 6em;
+  margin-bottom: 20px;
+}
+.content{
+  font-size: 1.5em;
+}
