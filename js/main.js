@@ -1,8 +1,15 @@
-const { generateIndexes, checkExistence } = require('./image_generation');
+const {
+  generateIndexes,
+  checkExistence,
+  addNewImage,
+  getSetLength
+} = require('./image_generation');
 
 document.addEventListener("DOMContentLoaded", () => {
   // rename based on name of button in html
   const newImageGenerateButton = document.getElementById('generate');
+
+  const viewIdx = 0;
 
   newImageGenerateButton.addEventListener('click', (e) => {
     // Generate a first set of indexes and convert them to string format
@@ -15,7 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // Next steps
     // Add new combination to set
+    addNewImage(stringFormat)
     // Move to end of image list
+    viewIdx = getSetLength();
+
+    console.log(viewIdx)
     // Image generation
       // Separate code that reads the indexes and displays the proper shia/lyric combination on the screen. This should be done with DOM manipulation on the same elements we use for the title/money hungry button
     // Possible set of instructions or information

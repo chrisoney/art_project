@@ -15,10 +15,20 @@ const generateIndexes = () => {
 
 // This might be too narrow a purpose, but there's no harm in leaving it as is for now.
 const checkExistence = (indexString) => {
-  return saved_images.has(indexString);
+  return saved_images.includes(indexString);
+}
+
+const addNewImage = (indexString) => {
+  saved_images.push(indexString);
+}
+
+const getSetLength = () => {
+  return saved_images.length;
 }
 
 module.exports = {
   generateIndexes,
-  checkExistence
+  checkExistence,
+  addNewImage,
+  getSetLength
 }

@@ -63,8 +63,8 @@ const lyrics = [
 ];
 
 // Possible refactor: Eventually move this to local storage? Possibly a lightweight database. Requires research
-const saved_images = new Set([
+const saved_images = [
   `1-1-1`
-]);
+];
 
 module.exports =  { lyrics, saved_images }
