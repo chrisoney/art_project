@@ -61,4 +61,8 @@ const lyrics = [
   "You're finally safe from Shia LaBeouf"
 ];
 
-module.exports =  { lyrics }
+const saved_images = new Set([
+  `1-1-1`
+]);
+
+module.exports =  { lyrics, saved_images }

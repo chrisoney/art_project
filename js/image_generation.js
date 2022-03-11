@@ -1,4 +1,4 @@
-const { lyrics } = require('./lyrics');
+const { lyrics, saved_images } = require('./content');
 
 const generateIndexes = () => {
   const lyricIdx = Math.floor(Math.random() * lyrics.length);
@@ -8,6 +8,11 @@ const generateIndexes = () => {
   return { lyricIdx, rowIdx, colIdx };
 }
 
+const checkExistence = (indexString) => {
+  return saved_images.has(indexString);
+}
+
 module.exports = {
-  generateIndexes
+  generateIndexes,
+  checkExistence
 }
