@@ -1,3 +1,4 @@
+// Possible refactor: Consider removing duplicate lyric lines
 const lyrics = [
   "You're walking in the woods",
   "There's no one around and your phone is dead",
@@ -61,6 +62,7 @@ const lyrics = [
   "You're finally safe from Shia LaBeouf"
 ];
 
+// Possible refactor: Eventually move this to local storage? Possibly a lightweight database. Requires research
 const saved_images = new Set([
   `1-1-1`
 ]);
