@@ -43,8 +43,12 @@
   font-size: 6em;
   margin-bottom: 20px;
 }
-.content{
+.content-button{
   font-size: 1.5em;
+}
+
+.content-image-container {
+
 }
 
 /* Footer Section */
@@ -74,13 +78,19 @@
   z-index: 1;
 }
 
+.initials-container {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
 .initials {
   height: 2rem;
   width: auto;
 }
 
-.test {
-  padding: 10px;
-  display: flex;
-  align-items: center;
+/* Canvas styling */
+
+.hidden {
+  display: none;
 }
