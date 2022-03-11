@@ -10,4 +10,8 @@ module.exports = {
   resolve: {
     extensions: ["", ".js"]
   },
+  watchOptions: {
+    aggregateTimeout: 1000,
+  },
+  watch: true
 }

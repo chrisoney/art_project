@@ -4,7 +4,7 @@
   "description": "",
   "main": "bundle.js",
   "scripts": {
-    "postinstall": "webpack"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
