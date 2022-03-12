@@ -26,9 +26,14 @@ const getSetLength = () => {
   return saved_images.length;
 }
 
+const getLyric = (idx) => {
+  return lyrics[idx];
+}
+
 module.exports = {
   generateIndexes,
   checkExistence,
   addNewImage,
-  getSetLength
+  getSetLength,
+  getLyric
 }

@@ -2,7 +2,8 @@ const {
   generateIndexes,
   checkExistence,
   addNewImage,
-  getSetLength
+  getSetLength,
+  getLyric
 } = require('./image_generation');
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -48,17 +49,23 @@ const drawImage = (idxString) => {
   bigImage.src = 'images/shia-sprite-2.png';
   const canvas = document.getElementById('canvas');
   const context = canvas.getContext('2d');
-  const WIDTH = canvas.width;
-  const HEIGHT = canvas.height;
-  const SCALE = 1;
+  const WIDTH = 72;
+  const HEIGHT = 128;
+  const SCALE = 2;
+  const lyric = getLyric(lyricIdx);
+
+  // Split the text at a certain number of characters
+
   bigImage.addEventListener('load', () => {
-    context.clearRect(0,0,WIDTH * SCALE,HEIGHT * SCALE)
+    context.clearRect(0,0,context.canvas.width,context.canvas.height)
     context.drawImage(bigImage, colIdx * WIDTH, rowIdx * HEIGHT, WIDTH, HEIGHT, 0, 0, WIDTH * SCALE, HEIGHT * SCALE);
+    context.font = 'italic 20px "Fira Sans", serif';
+    context.fillText(lyric, 0, 300)
     console.log('rowIdx', rowIdx, 'colIdx', colIdx)
   })
-  
-  // context.beginPath();
-  // context.moveTo(0, 0);
-  // context.lineTo(18, 36);
-  // context.stroke();
+}
+
+const splitAndPrintText = (lyric, context, x, y, maxWidth, lineHeight) => {
+  const words = str.split(' ');
+
 }
