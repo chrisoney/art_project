@@ -1,8 +1,12 @@
 :root {
   --blood: #8B0202;
+  --blood-rgb: 139, 2, 2;
   --animal-blood: #A51515;
+  --animal-blood-rgb: 165, 21, 21;
   --blood-orange: #D1001D;
+  --blood-orange-rgb: 209, 0, 29;
   --blood-red: #660000;
+  --blood-red-rgb: 102, 0, 0;
 }
 
 .page-container{
@@ -80,13 +84,13 @@
   font-size: 1.5em;
   color: white;
   padding: 5px 8px;
-  border: #8a0303;
+  border: var(--blood);
   border-radius: 5px;
-  background-color: rgba(138,3,3,0.9);
+  background-color: rgba(var(--blood-rgb),0.9);
 }
 
 .content-button:hover {
-  background-color: rgba(138,3,3,0.8)
+  background-color: rgba(var(--blood-rgb),0.8)
 }
 
 /* Footer Section */
