@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Event listeners for the right and left buttons to move through the list. Consider simplifying logic with negative and positive indicators
   const rightButton = document.getElementById('right-arrow');
   const leftButton = document.getElementById('left-arrow');
+  const homeButtom = document.getElementById('home');
 
   rightButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -44,6 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const index = findIndex(-1)
     navigateImages(index)
   });
+  homeButtom.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateImages(-1)
+  })
 });
 
 // Function to get title?
