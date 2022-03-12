@@ -128,9 +128,10 @@ const navigateImages = (imageIdx) => {
 
 const generateImageTitle = (indexString) => {
   const indexArray = indexString.split('-');
-  const [letterIdx, tensDigit, onesDigit] = indexArray.map(Number);
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  return `${alphabet[letterIdx]}${tensDigit * 10}${onesDigit + 1}`;
+  const [number, charTensDigit, charOnesDigit] = indexArray.map(Number);
+  const letterIdx = charTensDigit * 10 + charOnesDigit + 1;
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  return `${alphabet[letterIdx]}${number}`;
 }
 
 const populatePage = (title, imageString, homePage) => {
