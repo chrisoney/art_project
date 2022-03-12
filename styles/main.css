@@ -94,10 +94,28 @@
   border-radius: 50%;
   padding: 7px 10px;
   background-color: white;
+  transform: translate(0, 0);
+  transition-duration: 1s;
 }
 
 .link-reveal {
   z-index: 1;
+}
+
+#linkedin {
+  padding: 7px 12px;
+}
+
+#portfolio.revealed {
+  transform: translateY(-120%);
+}
+
+#linkedin.revealed {
+  transform: translateX(120%);
+}
+
+#github.revealed {
+  transform: translate(120%, -120%);
 }
 
 .initials-container {

@@ -49,6 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     navigateImages(-1)
   })
+
+  const linkReveal = document.querySelector('.link-reveal');
+  linkReveal.addEventListener('click', (e) => {
+    e.preventDefault();
+    const links = document.querySelectorAll('.outside-link');
+    links.forEach((ele) => ele.classList.toggle('revealed'));
+  })
 });
 
 // Function to get title?
