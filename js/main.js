@@ -30,11 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     viewIdx = getSavedImageLength();
 
     drawImage(stringFormat);
-    // Image generation
-    // Separate code that reads the indexes and displays the proper shia/lyric combination on the screen. This should be done with DOM manipulation on the same elements we use for the title/money hungry button
-    // Possible set of instructions or information
-    // If this is done, and user can spam the button, only have instructions appear the first time
-    // Alt: Instructions never appear, and discrete instruction button flashes
+    
     
   });
   // Event listeners for the right and left buttons to move through the list. Consider simplifying logic with negative and positive indicators
@@ -43,11 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   rightButton.addEventListener('click', (e) => {
     e.preventDefault();
-    navigateImages(1);
+    const index = findIndex(1);
+    navigateImages(index);
   })
   leftButton.addEventListener('click', (e) => {
     e.preventDefault();
-    navigateImages(-1)
+    const index = findIndex(-1)
+    navigateImages(index)
   });
 });
 
@@ -55,9 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Function to draw the image using the indexes previously created
 const drawImage = (idxString) => {
+  const container = document.querySelector('.content-image-container');
+  if (idxString === null) {
+    container.innerHTML = '';
+    return;
+  }
   const stringIdxArr = idxString.split('-');
   const [lyricIdx, rowIdx, colIdx] = stringIdxArr.map(Number)
-  const container = document.querySelector('.content-image-container');
   const bigImage = new Image();
   bigImage.crossOrigin = "null";
   bigImage.src = 'https://i.imgur.com/0FWuKsa.png';
@@ -110,23 +112,46 @@ const splitAndPrintText = (lyric, context, x, y, maxWidth, lineHeight) => {
   context.fillText(line, (maxWidth - lastWidth) / 2, y);
 }
 
-const navigateImages = (direction) => {
-  // viewIdx = 0
+const findIndex = (direction) => {
   const totalImages = getSavedImageLength(); // 1
   viewIdx = (viewIdx + direction) % (totalImages + 1); // 1
   const imageIdx = viewIdx - 1;
+  return imageIdx;
+}
+
+const navigateImages = (imageIdx) => {
+  const totalImages = getSavedImageLength(); // 1
+
   if (imageIdx >= 0 && imageIdx < totalImages) {
     const imageString = getSavedImage(imageIdx); // the 0 index is currently reserved for the main page
-    drawImage(imageString)
+    const title = generateImageTitle(imageString)
+    populatePage(title, imageString, false)
   } else {
     //main page code
-    console.log('out of bounds')
+    populatePage('Shia Art', null, true)
   }
 }
 
-const generateTitle = (indexString) => {
+const generateImageTitle = (indexString) => {
   const indexArray = indexString.split('-');
   const [letterIdx, tensDigit, onesDigit] = indexArray.map(Number);
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   return `${alphabet[letterIdx]}${tensDigit * 10}${onesDigit + 1}`;
+}
+
+const populatePage = (title, imageString, homePage) => {
+  const titleElement = document.getElementById("title");
+  titleElement.innerText = title;
+  drawImage(imageString)
+
+  const generateButton = document.getElementById("generate");
+  if (homePage) {
+    if (generateButton.classList.contains("hidden")) {
+      generateButton.classList.remove("hidden")
+    }
+  } else {
+    if (!generateButton.classList.contains("hidden")) {
+      generateButton.classList.add("hidden");
+    }
+  }
 }
