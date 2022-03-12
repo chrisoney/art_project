@@ -60,12 +60,32 @@ const drawImage = (idxString) => {
     context.clearRect(0,0,context.canvas.width,context.canvas.height)
     context.drawImage(bigImage, colIdx * WIDTH, rowIdx * HEIGHT, WIDTH, HEIGHT, 0, 0, WIDTH * SCALE, HEIGHT * SCALE);
     context.font = 'italic 20px "Fira Sans", serif';
-    context.fillText(lyric, 0, 300)
-    console.log('rowIdx', rowIdx, 'colIdx', colIdx)
+    context.fillStyle = "#8a0303";
+    splitAndPrintText(lyric, context, 0, 300, 140, 22);
   })
 }
 
 const splitAndPrintText = (lyric, context, x, y, maxWidth, lineHeight) => {
-  const words = str.split(' ');
+  const words = lyric.split(' ');
+  let line = '';
 
+  for (let i = 0; i < words.length; i++) {
+    let lineAttempt = line + words[i] + ' ';
+    const metrics = context.measureText(lineAttempt);
+    const attemptWidth = metrics.width;
+    // console.log('width: ', attemptWidth)
+    if (attemptWidth > maxWidth && i > 0) {
+      // console.log('line: ', line)
+      const oldMetrics = context.measureText(line);
+      const oldWidth = oldMetrics.width;
+      context.fillText(line, (maxWidth - oldWidth) / 2, y);
+      line = words[i] + ' ';
+      y += lineHeight;
+    } else {
+      line = lineAttempt;
+    }
+  }
+  const lastMetrics = context.measureText(line);
+  const lastWidth = lastMetrics.width;
+  context.fillText(line, (maxWidth - lastWidth) / 2, y);
 }
