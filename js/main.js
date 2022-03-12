@@ -28,10 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addNewImage(stringFormat)
     // Move to end of image list
     viewIdx = getSavedImageLength();
-
-    drawImage(stringFormat);
-    
-    
+    navigateImages(viewIdx - 1)    
   });
   // Event listeners for the right and left buttons to move through the list. Consider simplifying logic with negative and positive indicators
   const rightButton = document.getElementById('right-arrow');
@@ -95,9 +92,7 @@ const splitAndPrintText = (lyric, context, x, y, maxWidth, lineHeight) => {
     let lineAttempt = line + words[i] + ' ';
     const metrics = context.measureText(lineAttempt);
     const attemptWidth = metrics.width;
-    // console.log('width: ', attemptWidth)
     if (attemptWidth > maxWidth && i > 0) {
-      // console.log('line: ', line)
       const oldMetrics = context.measureText(line);
       const oldWidth = oldMetrics.width;
       context.fillText(line, (maxWidth - oldWidth) / 2, y);
@@ -121,7 +116,6 @@ const findIndex = (direction) => {
 
 const navigateImages = (imageIdx) => {
   const totalImages = getSavedImageLength(); // 1
-
   if (imageIdx >= 0 && imageIdx < totalImages) {
     const imageString = getSavedImage(imageIdx); // the 0 index is currently reserved for the main page
     const title = generateImageTitle(imageString)
