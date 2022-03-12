@@ -37,17 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   rightButton.addEventListener('click', (e) => {
     e.preventDefault();
-    const index = findIndex(1);
-    navigateImages(index);
+    findIndex(1);
+    navigateImages();
   })
   leftButton.addEventListener('click', (e) => {
     e.preventDefault();
-    const index = findIndex(-1)
-    navigateImages(index)
+    findIndex(-1)
+    navigateImages()
   });
   homeButtom.addEventListener('click', (e) => {
     e.preventDefault();
-    navigateImages(-1)
+    viewIdx = 0;
+    navigateImages()
   })
 
   const linkReveal = document.querySelector('.link-reveal');
@@ -120,20 +121,18 @@ const splitAndPrintText = (lyric, context, x, y, maxWidth, lineHeight) => {
 }
 
 const findIndex = (direction) => {
-  const totalImages = getSavedImageLength(); // 1
-  viewIdx = (viewIdx + direction) % (totalImages + 1); // 1
-  const imageIdx = viewIdx - 1;
-  return imageIdx;
+  const totalImages = getSavedImageLength();
+  let movement = viewIdx + direction;
+  if (movement < 0) movement = totalImages;
+  viewIdx = (movement) % (totalImages + 1);
 }
 
-const navigateImages = (imageIdx) => {
-  const totalImages = getSavedImageLength(); // 1
-  if (imageIdx >= 0 && imageIdx < totalImages) {
-    const imageString = getSavedImage(imageIdx); // the 0 index is currently reserved for the main page
+const navigateImages = () => {
+  if (viewIdx > 0) {
+    const imageString = getSavedImage(viewIdx - 1);
     const title = generateImageTitle(imageString)
     populatePage(title, imageString, false)
   } else {
-    //main page code
     populatePage('Shia Art', null, true)
   }
 }
