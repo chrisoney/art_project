@@ -52,3 +52,7 @@ button {
   border: none;
   cursor: pointer;
 }
+
+a, a:visited {
+	color: black;
+}

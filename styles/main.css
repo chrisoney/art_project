@@ -99,11 +99,17 @@
 }
 
 .link-reveal {
+  border: 3px solid gray;
   z-index: 1;
 }
 
 #linkedin {
-  padding: 7px 12px;
+  padding: 9px 12px;
+}
+
+
+#github {
+  padding: 9px 11px;
 }
 
 #portfolio.revealed {
