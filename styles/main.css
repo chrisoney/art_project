@@ -52,6 +52,11 @@
   font-size: 4em;
 }
 
+#left-arrow:hover, #right-arrow:hover {
+  transform: scale(1.2);
+  transition-duration: 1s;
+}
+
 .middle{
   grid-area: middle;
   display: flex;
@@ -66,10 +71,6 @@
 }
 .content-button{
   font-size: 1.5em;
-}
-
-.content-image-container {
-
 }
 
 /* Footer Section */
