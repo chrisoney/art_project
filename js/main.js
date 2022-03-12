@@ -2,15 +2,17 @@ const {
   generateIndexes,
   checkExistence,
   addNewImage,
-  getSetLength,
+  getSavedImage,
+  getSavedImageLength,
   getLyric
 } = require('./image_generation');
+
+let viewIdx = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   // rename based on name of button in html
   const newImageGenerateButton = document.getElementById('generate');
 
-  let viewIdx = 0;
 
   newImageGenerateButton.addEventListener('click', (e) => {
     // Generate a first set of indexes and convert them to string format
@@ -25,17 +27,28 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add new combination to set
     addNewImage(stringFormat)
     // Move to end of image list
-    viewIdx = getSetLength();
+    viewIdx = getSavedImageLength();
 
     drawImage(stringFormat);
     // Image generation
-      // Separate code that reads the indexes and displays the proper shia/lyric combination on the screen. This should be done with DOM manipulation on the same elements we use for the title/money hungry button
+    // Separate code that reads the indexes and displays the proper shia/lyric combination on the screen. This should be done with DOM manipulation on the same elements we use for the title/money hungry button
     // Possible set of instructions or information
-      // If this is done, and user can spam the button, only have instructions appear the first time
-      // Alt: Instructions never appear, and discrete instruction button flashes
+    // If this is done, and user can spam the button, only have instructions appear the first time
+    // Alt: Instructions never appear, and discrete instruction button flashes
     
   });
   // Event listeners for the right and left buttons to move through the list. Consider simplifying logic with negative and positive indicators
+  const rightButton = document.getElementById('right-arrow');
+  const leftButton = document.getElementById('left-arrow');
+
+  rightButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateImages(1);
+  })
+  leftButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateImages(-1)
+  });
 });
 
 // Function to get title?
@@ -49,7 +62,7 @@ const drawImage = (idxString) => {
   bigImage.crossOrigin = "null";
   bigImage.src = 'https://i.imgur.com/0FWuKsa.png';
   const canvas = document.createElement('canvas');
-  canvas.height = 600;
+  canvas.height = 400;
   canvas.width = 144;
   const context = canvas.getContext('2d');
   const WIDTH = 72;
@@ -60,7 +73,6 @@ const drawImage = (idxString) => {
   // Split the text at a certain number of characters
 
   bigImage.addEventListener('load', () => {
-    // context.clearRect(0,0,context.canvas.width,context.canvas.height)
     context.drawImage(bigImage, colIdx * WIDTH, rowIdx * HEIGHT, WIDTH, HEIGHT, 0, 0, WIDTH * SCALE, HEIGHT * SCALE);
     context.font = 'italic 20px "Fira Sans", serif';
     context.fillStyle = "#8a0303";
@@ -96,4 +108,18 @@ const splitAndPrintText = (lyric, context, x, y, maxWidth, lineHeight) => {
   const lastMetrics = context.measureText(line);
   const lastWidth = lastMetrics.width;
   context.fillText(line, (maxWidth - lastWidth) / 2, y);
+}
+
+const navigateImages = (direction) => {
+  // viewIdx = 0
+  const totalImages = getSavedImageLength(); // 1
+  viewIdx = (viewIdx + direction) % (totalImages + 1); // 1
+  const imageIdx = viewIdx - 1;
+  if (imageIdx >= 0 && imageIdx < totalImages) {
+    const imageString = getSavedImage(imageIdx); // the 0 index is currently reserved for the main page
+    drawImage(imageString)
+  } else {
+    //main page code
+    console.log('out of bounds')
+  }
 }

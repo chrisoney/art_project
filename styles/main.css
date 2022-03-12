@@ -19,16 +19,16 @@
     '. middle .';
   font-family: 'Noto Sans Display', sans-serif;
 }
-.left-side {
+#left-arrow {
   grid-area: left;
   text-align: left;
 }
-.right-side {
+#right-arrow {
   grid-area: right;
   text-align: right;
 }
 
-.left-side, .right-side {
+#left-arrow, #right-arrow {
   font-size: 4em;
 }
 

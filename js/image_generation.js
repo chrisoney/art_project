@@ -1,4 +1,4 @@
-const { lyrics, saved_images } = require('./content');
+const { lyrics, savedImages } = require('./content');
 
 // Only meant to generate indexes.
 // LyricIdx will be a line for now. If audio is added, then a start time and duration could be useful
@@ -15,15 +15,19 @@ const generateIndexes = () => {
 
 // This might be too narrow a purpose, but there's no harm in leaving it as is for now.
 const checkExistence = (indexString) => {
-  return saved_images.includes(indexString);
+  return savedImages.includes(indexString);
 }
 
 const addNewImage = (indexString) => {
-  saved_images.push(indexString);
+  savedImages.push(indexString);
 }
 
-const getSetLength = () => {
-  return saved_images.length;
+const getSavedImage = (index) => {
+  return savedImages[index]
+}
+
+const getSavedImageLength = () => {
+  return savedImages.length;
 }
 
 const getLyric = (idx) => {
@@ -34,6 +38,7 @@ module.exports = {
   generateIndexes,
   checkExistence,
   addNewImage,
-  getSetLength,
+  getSavedImage,
+  getSavedImageLength,
   getLyric
 }
