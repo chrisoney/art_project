@@ -123,3 +123,10 @@ const navigateImages = (direction) => {
     console.log('out of bounds')
   }
 }
+
+const generateTitle = (indexString) => {
+  const indexArray = indexString.split('-');
+  const [letterIdx, tensDigit, onesDigit] = indexArray.map(Number);
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  return `${alphabet[letterIdx]}${tensDigit * 10}${onesDigit + 1}`;
+}
