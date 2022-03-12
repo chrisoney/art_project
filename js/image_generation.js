@@ -7,7 +7,7 @@ const { lyrics, saved_images } = require('./content');
 // Possible refactor: further randomization with blood splatter?
 const generateIndexes = () => {
   const lyricIdx = Math.floor(Math.random() * lyrics.length);
-  const rowIdx = Math.floor(Math.random());
+  const rowIdx = Math.floor(Math.random() * 2);
   const colIdx = Math.floor(Math.random() * 10);
 
   return { lyricIdx, rowIdx, colIdx };
