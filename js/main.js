@@ -145,13 +145,20 @@ const populatePage = (title, imageString, homePage) => {
   drawImage(imageString)
 
   const generateButton = document.getElementById("generate");
+  const homeButton = document.getElementById("home");
   if (homePage) {
     if (generateButton.classList.contains("hidden")) {
       generateButton.classList.remove("hidden")
     }
+    if (!home.classList.contains("hidden")) {
+      home.classList.add("hidden")
+    }
   } else {
     if (!generateButton.classList.contains("hidden")) {
       generateButton.classList.add("hidden");
+    }
+    if (homeButton.classList.contains("hidden")) {
+      homeButton.classList.remove("hidden");
     }
   }
 }
