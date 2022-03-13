@@ -63,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const settingsButtons = document.querySelectorAll('.settings-button');
     settingsButtons.forEach((ele) => ele.classList.toggle('revealed'));
+    const volume = document.getElementById('volume-slider');
+    volume.classList.toggle('revealed');
   })
 
   const darkmodeBUtton = document.getElementById('darkmode');

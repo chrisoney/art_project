@@ -210,6 +210,20 @@
 
 input[type="range"] {
   position:relative;
+  z-index: -1;
+  bottom: 30%;
+  right: 100%;
+  /* -webkit-appearance: none; */
+  width: 30px;
+  /* margin: 0; */
+  /* padding: 0; */
+  height: 55px;
+  transform:rotate(-90deg);
+  /* outline: none; */
+  transition-duration: 1s;
+}
+
+input[type="range"].revealed {
   bottom: 130%;
   right: 220%;
   /* -webkit-appearance: none; */
@@ -217,8 +231,6 @@ input[type="range"] {
   /* margin: 0; */
   /* padding: 0; */
   height: 15px;
-  transform:rotate(-90deg);
-  /* outline: none; */
 }
 
 /* Hidden styling */
