@@ -35,6 +35,7 @@
   border-radius: 50%;
   padding: 7px 8px;
   background-color: white;
+  transition-duration: 1s;
 }
 
 /* Center Section */
@@ -205,11 +206,13 @@
   transform: translate(-120%, -120%);
 }
 
-/* Canvas styling */
+/* Hidden styling */
 
 .hidden {
   display: none;
 }
+
+/* Darkmode */
 
 .page-container.darkmode {
   background-color: #222;
@@ -222,4 +225,10 @@
 
 button.darkmode{
   color: white;
+}
+
+.footer-container.darkmode button, .footer-container.darkmode a, #home.darkmode {
+  color: white;
+  background-color: #222;
+  border-color: #555;
 }
