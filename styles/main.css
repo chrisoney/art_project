@@ -95,7 +95,7 @@
   background-color: rgba(var(--blood-rgb),0.8)
 }
 
-.content-image-container {
+.content-image-container > img {
   padding: 10px 20px;
 }
 

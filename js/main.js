@@ -90,7 +90,7 @@ const drawImage = (idxString) => {
   bigImage.crossOrigin = "null";
   bigImage.src = 'https://i.imgur.com/0FWuKsa.png';
   const canvas = document.createElement('canvas');
-  canvas.height = 400;
+  canvas.height = 370;
   canvas.width = 144;
   const context = canvas.getContext('2d');
   const WIDTH = 72;
