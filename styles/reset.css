@@ -48,6 +48,7 @@ table {
 }
 
 button {
+	color: black;
   background: none;
   border: none;
   cursor: pointer;

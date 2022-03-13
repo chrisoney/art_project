@@ -64,6 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const settingsButtons = document.querySelectorAll('.settings-button');
     settingsButtons.forEach((ele) => ele.classList.toggle('revealed'));
   })
+
+  const darkmodeBUtton = document.getElementById('darkmode');
+  darkmodeBUtton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const darkmodeElements = document.querySelectorAll('.darkmode-capable');
+    darkmodeElements.forEach((ele) => {
+      ele.classList.toggle('darkmode')
+    })
+  })
 });
 
 // Function to get title?

@@ -95,6 +95,10 @@
   background-color: rgba(var(--blood-rgb),0.8)
 }
 
+.content-image-container {
+  padding: 10px 20px;
+}
+
 /* Footer Section */
 
 .footer-container {
@@ -205,4 +209,17 @@
 
 .hidden {
   display: none;
+}
+
+.page-container.darkmode {
+  background-color: #222;
+  color: white;
+}
+
+.content-image-container.darkmode {
+  background-color: white;
+}
+
+button.darkmode{
+  color: white;
 }
