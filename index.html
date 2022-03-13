@@ -18,32 +18,37 @@
   <div class="page-container darkmode-capable">
     <header class="header-container">
       <div class="header-left">
-        <button id="home" class="hidden darkmode-capable"><i class="fas fa-home"></i></button>
+        <button 
+          id="home"
+          class="hidden darkmode-capable"
+          title="Go back to the title screen."
+        ><i class="fas fa-home"></i></button>
       </div>
     </header>
     <div class="center-container">
-      <button id="left-arrow" class="darkmode-capable">
+      <button id="left-arrow" class="darkmode-capable" title="Previous image/screen">
         <i class="fas fa-angle-left"></i>
       </button>
       <div class="middle">   
         <div id="title" class="title">Shia Art</div>
-        <button id='generate' class="content-button">Generate</button>
+        <button id='generate' class="content-button" title="Generate a new image">Generate</button>
         <div class="content-image-container darkmode-capable">
         </div>
       </div>
-      <button id="right-arrow" class="darkmode-capable"> 	
+      <button id="right-arrow" class="darkmode-capable" title="Next image/screen"> 	
         <i class="fas fa-angle-right"></i>
       </button>
     </div>
     <footer class="footer-container darkmode-capable" >
         <div class="link-container">
-          <button class="link-reveal">
+          <button class="link-reveal" title="Show external links.">
             <i class="fas fa-link"></i>
           </button>
           <a 
             href="https://www.github.com/chrisoney"
             id="github"
             class="outside-link"
+            title="Link to my github profile."
           >
             <i class="fab fa-github"></i>
           </a>
@@ -51,6 +56,7 @@
             href="https://www.linkedin.com/in/chrisoney/"
             id="linkedin" 
             class="outside-link"
+            title="Link to my LinkedIn profile."
           >
             <i class="fab fa-linkedin"></i>
           </a>
@@ -58,21 +64,22 @@
             href="https://chrisoney.com"
             id="portfolio"
             class="outside-link initials-container"
+            title="Link to my portfolio site."
           >
            <img class="initials" src="images/initials.png" />
           </a>
         </div>
         <div class="settings-container">
-          <button class="settings-reveal">
+          <button class="settings-reveal" title="Show settings options.">
             <i class="fas fa-cogs"></i>
           </button>
-          <button id="music" class="settings-button">
+          <button id="music" class="settings-button" title="Play the original Actual Cannibal Shia Labeouf song by Rob Cantor.">
             <i class="fas fa-music"></i>
           </button>
-          <button id="info" class="settings-button">
+          <button id="info" class="settings-button" title="Show information about this site.">
             <i class="fas fa-info"></i>
           </button>
-          <button id="darkmode" class="settings-button">
+          <button id="darkmode" class="settings-button" title="Toggle Darkmode.">
            <i class="fas fa-moon"></i>
           </button>
         </div>
