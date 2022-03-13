@@ -210,10 +210,10 @@
 
 input[type="range"] {
   position:relative;
-  bottom: 50px;
-  right: 110px;
-  -webkit-appearance: none;
-  width: 50%;
+  bottom: 130%;
+  right: 220%;
+  /* -webkit-appearance: none; */
+  width: 60px;
   /* margin: 0; */
   /* padding: 0; */
   height: 15px;

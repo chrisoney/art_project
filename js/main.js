@@ -75,10 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Audio event listeners
+  const audio = document.getElementById("audio");
 
   const mainMusicButton = document.getElementById('music');
   mainMusicButton.addEventListener("click", (e) => {
-    let audio = document.getElementById("audio");
     if (audio.paused){
       audio.play();
     } else {
