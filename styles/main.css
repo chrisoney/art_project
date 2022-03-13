@@ -206,6 +206,21 @@
   transform: translate(-120%, -120%);
 }
 
+/* Volume styling */
+
+input[type="range"] {
+  position:relative;
+  bottom: 50px;
+  right: 110px;
+  -webkit-appearance: none;
+  width: 50%;
+  /* margin: 0; */
+  /* padding: 0; */
+  height: 15px;
+  transform:rotate(-90deg);
+  /* outline: none; */
+}
+
 /* Hidden styling */
 
 .hidden {

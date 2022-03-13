@@ -73,6 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ele.classList.toggle('darkmode')
     })
   })
+
+  // Audio event listeners
+
   const mainMusicButton = document.getElementById('music');
   mainMusicButton.addEventListener("click", (e) => {
     let audio = document.getElementById("audio");
@@ -82,6 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
       audio.pause();
     }
   });
+
+  const volumeSlider = document.getElementById('volume-slider');
+  volumeSlider.addEventListener('input', (e) => {
+    const value = e.target.value;
+
+    audio.volume = value / 100;
+  }); 
 });
 
 // Function to get title?
