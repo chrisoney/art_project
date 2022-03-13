@@ -56,6 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const links = document.querySelectorAll('.outside-link');
     links.forEach((ele) => ele.classList.toggle('revealed'));
+  });
+
+  const settingsReveal = document.querySelector('.settings-reveal');
+  settingsReveal.addEventListener('click', (e) => {
+    e.preventDefault();
+    const settingsButtons = document.querySelectorAll('.settings-button');
+    settingsButtons.forEach((ele) => ele.classList.toggle('revealed'));
   })
 });
 
