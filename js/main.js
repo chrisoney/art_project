@@ -73,6 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
       ele.classList.toggle('darkmode')
     })
   })
+  const mainMusicButton = document.getElementById('music');
+  mainMusicButton.addEventListener("click", (e) => {
+    let audio = document.getElementById("audio");
+    if (audio.paused){
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
 });
 
 // Function to get title?
