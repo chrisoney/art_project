@@ -42,6 +42,7 @@
   align-items: center;
   cursor: auto;
   padding: 10px 8px;
+  border: 3px solid #888;
 }
 
 #modal > .fa-info {
@@ -63,6 +64,33 @@
   right: -5px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.description-block {
+  margin-bottom: 5px;
+}
+
+.external-links-container {
+  margin: 10px auto 20px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.external-link {
+  border: 2px solid #888;
+  padding: 3px 2px;
+  border-radius: 3px;
+  border-top-right-radius: 0;
+  cursor: pointer;
+}
+
+.external-link:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
+.external-link > i {
+  color: #555;
 }
 
 /* Header Section */
@@ -278,10 +306,7 @@
   width: 20px;
   transform:rotate(-90deg);
   transition-duration: 1s;
-  /* -webkit-appearance: none;
-  margin: 0;
-  padding: 0;
-  outline: none; */
+  filter: hue-rotate(140deg) contrast(1.75);
 }
 
 input[type="range"].revealed {
