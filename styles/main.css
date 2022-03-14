@@ -17,6 +17,16 @@
   justify-content: center;
 }
 
+/* Modal styling */
+
+.modal-background {
+
+}
+
+.modal {
+  font-family: 'Noto Sans Display', sans-serif;
+}
+
 /* Header Section */
 
 
@@ -84,6 +94,7 @@
   text-align: center;
 }
 .content-button{
+  /* font-family: 'Noto Sans Display', sans-serif; */
   font-size: 1.5em;
   color: white;
   padding: 5px 8px;
@@ -117,7 +128,8 @@
 
 .link-reveal, .outside-link {
   position: absolute;
-  bottom: 50%;
+  bottom: 2vh;
+  left: 2vw;
   font-size: 2rem;
   border: 2px solid gray;
   border-radius: 50%;
@@ -166,8 +178,8 @@
 
 .settings-reveal, .settings-button {
   position: absolute;
-  bottom: 50%;
-  right: 50%;
+  bottom: 2vh;
+  right: 2vw;
   font-size: 2rem;
   border: 2px solid gray;
   border-radius: 50%;
@@ -208,29 +220,26 @@
 
 /* Volume styling */
 
-input[type="range"] {
-  position:relative;
+ input[type="range"] {
+  position: absolute;
   z-index: -1;
-  bottom: 30%;
-  right: 100%;
+  right: 3vw;
+  bottom: 3vh;
+  width: 20px;
+  transform:rotate(-90deg);
+  transition-duration: 1s;
   /* -webkit-appearance: none; */
-  width: 30px;
   /* margin: 0; */
   /* padding: 0; */
-  height: 55px;
-  transform:rotate(-90deg);
   /* outline: none; */
-  transition-duration: 1s;
 }
 
 input[type="range"].revealed {
-  bottom: 130%;
-  right: 220%;
+  width: 50px;
+  transform: rotate(-90deg) translate(20%, -650%);
   /* -webkit-appearance: none; */
-  width: 60px;
   /* margin: 0; */
   /* padding: 0; */
-  height: 15px;
 }
 
 /* Hidden styling */
