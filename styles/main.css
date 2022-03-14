@@ -23,7 +23,7 @@
 
 }
 
-.modal {
+#modal {
   font-family: 'Noto Sans Display', sans-serif;
 }
 
@@ -240,18 +240,15 @@
   width: 20px;
   transform:rotate(-90deg);
   transition-duration: 1s;
-  /* -webkit-appearance: none; */
-  /* margin: 0; */
-  /* padding: 0; */
-  /* outline: none; */
+  /* -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  outline: none; */
 }
 
 input[type="range"].revealed {
   width: 50px;
   transform: rotate(-90deg) translate(20%, -650%);
-  /* -webkit-appearance: none; */
-  /* margin: 0; */
-  /* padding: 0; */
 }
 
 /* Hidden styling */

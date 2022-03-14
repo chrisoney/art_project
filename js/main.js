@@ -94,8 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const infoModalToggleButton = document.getElementById('info');
   infoModalToggleButton.addEventListener('click', (e) => {
     e.preventDefault();
-    const modal = document.getElementById('modal');
-    modal.classList.toggle('hidden');
+    const modalBackground = document.querySelector('.modal-background');
+    modalBackground.classList.toggle('hidden');
   })
 
   const volumeSlider = document.getElementById('volume-slider');
