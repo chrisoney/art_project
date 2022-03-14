@@ -126,13 +126,13 @@
   font-size: 1.5em;
   color: white;
   padding: 5px 8px;
-  border: var(--blood);
+  border: var(--blood-orange);
   border-radius: 5px;
-  background-color: rgba(var(--blood-rgb),0.9);
+  background-color: rgba(var(--blood-orange-rgb),0.9);
 }
 
 .content-button:hover {
-  background-color: rgba(var(--blood-rgb),0.8)
+  background-color: rgba(var(--blood-orange-rgb),0.8)
 }
 
 .content-image-container > img {
