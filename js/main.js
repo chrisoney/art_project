@@ -88,12 +88,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const infoModalToggleButton = document.getElementById('info');
+  infoModalToggleButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const modal = document.getElementById('modal');
+    modal.classList.toggle('hidden');
+  })
+
   const volumeSlider = document.getElementById('volume-slider');
   volumeSlider.addEventListener('input', (e) => {
     const value = e.target.value;
 
     audio.volume = value / 100;
-  }); 
+  });
 });
 
 // Function to get title?
