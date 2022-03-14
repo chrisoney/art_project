@@ -4,7 +4,8 @@ const {
   addNewImage,
   getSavedImage,
   getSavedImageLength,
-  getLyric
+  getLyric,
+  getLink
 } = require('./image_generation');
 
 let viewIdx = 0;
@@ -91,6 +92,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const volumeSlider = document.getElementById('volume-slider');
+  volumeSlider.addEventListener('input', (e) => {
+    const value = e.target.value;
+
+    audio.volume = value / 100;
+  });
+
+  // Modal event listeners
+
   const toggleModal = (e) => {
     if (e.target !== e.currentTarget && !e.target.classList.contains('toggle-modal')) return;
     const modalBackground = document.querySelector('.modal-background');
@@ -102,12 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalBackground = document.querySelector('.modal-background');
   modalBackground.addEventListener('click', (e) => toggleModal(e));
 
-  const volumeSlider = document.getElementById('volume-slider');
-  volumeSlider.addEventListener('input', (e) => {
-    const value = e.target.value;
-
-    audio.volume = value / 100;
-  });
+  // Link event listeners for modal
+  const externalLinks = document.querySelectorAll('.external-link');
+  externalLinks.forEach((ele) => ele.addEventListener('click', (e) => {
+    e.preventDefault();
+    const linkName = e.currentTarget.dataset.linkName;
+    const linkUrl = getLink(linkName);
+    window.open(linkUrl, '_blank')
+  }))
 });
 
 // Function to get title?
