@@ -91,12 +91,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const infoModalToggleButton = document.getElementById('info');
-  infoModalToggleButton.addEventListener('click', (e) => {
+  const toggleModal = (e) => {
     e.preventDefault();
     const modalBackground = document.querySelector('.modal-background');
     modalBackground.classList.toggle('hidden');
-  })
+  };
+
+  const infoModalToggleButton = document.getElementById('info');
+  infoModalToggleButton.addEventListener('click', toggleModal);
+  const modalBackground = document.querySelector('.modal-background');
+  modalBackground.addEventListener('click', toggleModal);
 
   const volumeSlider = document.getElementById('volume-slider');
   volumeSlider.addEventListener('input', (e) => {
