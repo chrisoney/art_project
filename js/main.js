@@ -148,7 +148,7 @@ const drawImage = (idxString) => {
   // Split the text at a certain number of characters
 
   bigImage.addEventListener('load', () => {
-    context.drawImage(bigImage, colIdx * WIDTH, rowIdx * HEIGHT, WIDTH, HEIGHT, 0, 0, WIDTH * SCALE, HEIGHT * SCALE);
+    context.drawImage(bigImage, colIdx * WIDTH + 1, rowIdx * HEIGHT + 1, WIDTH - 2, HEIGHT - 2, 0, 0, WIDTH * SCALE, HEIGHT * SCALE);
     context.font = 'italic 20px "Fira Sans", serif';
     context.fillStyle = "#8a0303";
     splitAndPrintText(lyric, context, 0, 300, 140, 22);
