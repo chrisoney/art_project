@@ -81,7 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const mainMusicButton = document.getElementById('music');
   mainMusicButton.addEventListener("click", (e) => {
-    if (audio.paused){
+    e.preventDefault();
+    const slash = document.querySelector('.music-slash');
+    slash.classList.toggle('hidden');
+    if (audio.paused) {
       audio.play();
     } else {
       audio.pause();

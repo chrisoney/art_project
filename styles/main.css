@@ -191,7 +191,7 @@
 
 .settings-reveal {
   border: 3px solid gray;
-  z-index: 1;
+  z-index: 2;
 }
 
 #darkmode {
@@ -200,6 +200,18 @@
 
 #music {
   padding: 7px 10px;
+}
+
+.music-slash {
+  position: absolute;
+  right: 22px;
+  bottom: -5px;
+  display: block;
+  height: 55px;
+  width: 2px;
+  transform:rotate(45deg);
+  z-index: 3;
+  background-color: gray;
 }
 
 #info {
