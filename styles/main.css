@@ -41,6 +41,12 @@
   flex-direction: column;
   align-items: center;
   cursor: auto;
+  padding: 10px 8px;
+}
+
+#modal > .fa-info {
+  font-size: 1.5rem;
+  margin: 5px 0 10px 0;
 }
 
 #modal.darkmode {
