@@ -53,14 +53,6 @@
   background-color: #333;
 }
 
-#modal.darkmode a {
-  color: #999;
-}
-
-#modal.darkmode a:hover {
-  color: #888;
-}
-
 #modal > .fa-times-circle {
   color: var(--blood-orange);
   background-color: white;
