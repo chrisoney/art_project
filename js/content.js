@@ -68,4 +68,9 @@ const savedImages = [
   '8-1-4'
 ];
 
-module.exports =  { lyrics, savedImages }
+const links = {
+  'youtube': 'https://www.youtube.com/channel/UCtccbWvR1RQb976Jo6Mt7Yw',
+  'spotify': 'https://open.spotify.com/artist/1NtYiv70buGwaMspHuD49I'
+}
+
+module.exports =  { lyrics, savedImages, links }
