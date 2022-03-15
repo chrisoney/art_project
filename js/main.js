@@ -150,7 +150,7 @@ const drawImage = (idxString) => {
   bigImage.addEventListener('load', () => {
     context.drawImage(bigImage, colIdx * WIDTH + 1, rowIdx * HEIGHT + 1, WIDTH - 2, HEIGHT - 2, 0, 0, WIDTH * SCALE, HEIGHT * SCALE);
     context.font = 'italic 20px "Fira Sans", serif';
-    context.fillStyle = "#8a0303";
+    context.fillStyle = "#A51515";
     splitAndPrintText(lyric, context, 0, 300, 140, 22);
     const newImage = canvas.toDataURL("image/png");
     const imageElement = document.createElement('img')
