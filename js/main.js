@@ -1,19 +1,21 @@
 const {
-  generateIndexes,
   checkExistence,
   addNewImage,
-  getSavedImage,
   getSavedImageLength,
-  getLyric,
-  getLink
+  getLink,
+} = require('./content_access');
+
+const {
+  generateIndexes,
 } = require('./image_generation');
+
+const { navigateImages } = require('./display')
 
 let viewIdx = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   // rename based on name of button in html
   const newImageGenerateButton = document.getElementById('generate');
-
 
   newImageGenerateButton.addEventListener('click', (e) => {
     // Generate a first set of indexes and convert them to string format
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addNewImage(stringFormat)
     // Move to end of image list
     viewIdx = getSavedImageLength();
-    navigateImages(viewIdx - 1)    
+    navigateImages(viewIdx) // Fixed index issue, return later
   });
   // Event listeners for the right and left buttons to move through the list. Consider simplifying logic with negative and positive indicators
   const rightButton = document.getElementById('right-arrow');
@@ -39,17 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
   rightButton.addEventListener('click', (e) => {
     e.preventDefault();
     findIndex(1);
-    navigateImages();
+    navigateImages(viewIdx);
   })
   leftButton.addEventListener('click', (e) => {
     e.preventDefault();
     findIndex(-1)
-    navigateImages()
+    navigateImages(viewIdx)
   });
   homeButtom.addEventListener('click', (e) => {
     e.preventDefault();
     viewIdx = 0;
-    navigateImages()
+    navigateImages(viewIdx)
   })
 
   const linkReveal = document.querySelector('.link-reveal');
@@ -122,112 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }))
 });
 
-// Function to get title?
-
-// Function to draw the image using the indexes previously created
-const drawImage = (idxString) => {
-  const container = document.querySelector('.content-image-container');
-  if (idxString === null) {
-    container.innerHTML = '';
-    return;
-  }
-  const stringIdxArr = idxString.split('-');
-  const [lyricIdx, rowIdx, colIdx] = stringIdxArr.map(Number)
-  const bigImage = new Image();
-  bigImage.crossOrigin = "null";
-  bigImage.src = 'https://i.imgur.com/0FWuKsa.png';
-  const canvas = document.createElement('canvas');
-  canvas.height = 370;
-  canvas.width = 144;
-  const context = canvas.getContext('2d');
-  const WIDTH = 72;
-  const HEIGHT = 128;
-  const SCALE = 2;
-  const lyric = getLyric(lyricIdx);
-
-  // Split the text at a certain number of characters
-
-  bigImage.addEventListener('load', () => {
-    context.drawImage(bigImage, colIdx * WIDTH + 1, rowIdx * HEIGHT + 1, WIDTH - 2, HEIGHT - 2, 0, 0, WIDTH * SCALE, HEIGHT * SCALE);
-    context.font = 'italic 20px "Fira Sans", serif';
-    context.fillStyle = "#A51515";
-    splitAndPrintText(lyric, context, 0, 300, 140, 22);
-    const newImage = canvas.toDataURL("image/png");
-    const imageElement = document.createElement('img')
-    imageElement.src = newImage;
-    container.innerHTML = '';
-    container.appendChild(imageElement);
-  })
-}
-
-const splitAndPrintText = (lyric, context, x, y, maxWidth, lineHeight) => {
-  const words = lyric.split(' ');
-  let line = '';
-
-  for (let i = 0; i < words.length; i++) {
-    let lineAttempt = line + words[i] + ' ';
-    const metrics = context.measureText(lineAttempt);
-    const attemptWidth = metrics.width;
-    if (attemptWidth > maxWidth && i > 0) {
-      const oldMetrics = context.measureText(line);
-      const oldWidth = oldMetrics.width;
-      context.fillText(line, (maxWidth - oldWidth) / 2, y);
-      line = words[i] + ' ';
-      y += lineHeight;
-    } else {
-      line = lineAttempt;
-    }
-  }
-  const lastMetrics = context.measureText(line);
-  const lastWidth = lastMetrics.width;
-  context.fillText(line, (maxWidth - lastWidth) / 2, y);
-}
-
 const findIndex = (direction) => {
   const totalImages = getSavedImageLength();
   let movement = viewIdx + direction;
   if (movement < 0) movement = totalImages;
   viewIdx = (movement) % (totalImages + 1);
-}
-
-const navigateImages = () => {
-  if (viewIdx > 0) {
-    const imageString = getSavedImage(viewIdx - 1);
-    const title = generateImageTitle(imageString)
-    populatePage(title, imageString, false)
-  } else {
-    populatePage('Shia Art', null, true)
-  }
-}
-
-const generateImageTitle = (indexString) => {
-  const indexArray = indexString.split('-');
-  const [number, charTensDigit, charOnesDigit] = indexArray.map(Number);
-  const letterIdx = charTensDigit * 10 + charOnesDigit + 1;
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  return `${alphabet[letterIdx]}${number}`;
-}
-
-const populatePage = (title, imageString, homePage) => {
-  const titleElement = document.getElementById("title");
-  titleElement.innerText = title;
-  drawImage(imageString)
-
-  const generateButton = document.getElementById("generate");
-  const homeButton = document.getElementById("home");
-  if (homePage) {
-    if (generateButton.classList.contains("hidden")) {
-      generateButton.classList.remove("hidden")
-    }
-    if (!home.classList.contains("hidden")) {
-      home.classList.add("hidden")
-    }
-  } else {
-    if (!generateButton.classList.contains("hidden")) {
-      generateButton.classList.add("hidden");
-    }
-    if (homeButton.classList.contains("hidden")) {
-      homeButton.classList.remove("hidden");
-    }
-  }
 }
